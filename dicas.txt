@@ -1,3 +1,5 @@
+ls - lista os arquivos.
+cat nome do arquivo - mostra o que tem dentro do arquivo.
 git status - verificar os arquivos que foram tocados a branch de trabalho.
 git add . -pegar todos os arquivos que foram tocados e separar em um pacote para o envio.
 git commit -m mensagem - fecha o pacote de trabalho colocando uma mensagem no mesmo.
