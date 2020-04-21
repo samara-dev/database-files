@@ -1,0 +1,48 @@
+
+1) Criar tabela:
+
+CREATE TABLE usuario (
+id INTEGER PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+email VARCHAR(50) NOT NULL,
+nascimento DATE NOT NULL,
+dinheiro DOUBLE NOT NULL,
+perfil VARCHAR(10));
+
+2) Inserir dados:
+
+INSERT INTO usuario values (0, "Leonardo", "leonardo@br.com", "1986-06-21", 100, "ADMIN");
+INSERT INTO usuario values (0, "Carlos", "carlos@br.com", "1985-03-05", 90, "USER");
+INSERT INTO usuario values (0, "Eduardo", "eduardo@br.com", "1987-04-30", 80, "DEV");
+INSERT INTO usuario values (0, "Diego", "diego@br.com", "1989-11-01", 70,  null);
+INSERT INTO usuario(nome, email, nascimento) values ("Hugo", "hugo@br.com", 60, "1990-02-21");
+INSERT INTO usuario(nome, email, nascimento, perfil) values ("Pedro", "pedro@br.com", 50, "1990-02-21", "ADMIN");
+
+3) Buscar dados:
+
+SELECT * FROM usuario;
+SELECT nome FROM usuario where email = "leonardo@br.com";
+SELECT * FROM usuario WHERE id > 3;
+SELECT * FROM usuario WHERE nascimento BETWEEN "1988-01-01" and "1990-12-31";
+SELECT * FROM usuario WHERE perfil IS NOT NULL;
+SELECT nome, dinheiro FROM usuario WHERE perfil = "ADMIN";
+
+4) Atualizar dados:
+
+UPDATE usuario SET nascimento = "1990-02-22" where nome = "Hugo";
+
+5) Remover dados:
+
+DELETE FROM usuario where perfil = "DEV";
+
+6) Atividades:
+
+a) inserir mais 30 linhas na tabela de usuario variando entre os campos;
+b) selecionar os usuários que possuem perfil = ADMIN;
+c) selecionar apenas o nome dos usuarios nascidos em 21 de fevereiro de 1990;
+d) remover todos os usuários com perfil = DEV;
+e) atualizar todos os usuários que não possuem perfil;
+f) atualizar o dinheiro do usuario Pedro para 200;
+g) remover todos os usuários com dinheiro > 300 ou dinheiro < 50;
+
+Observação: Para cada letra, subir as SQLs no git no repositorio DATABASE.
