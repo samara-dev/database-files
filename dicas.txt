@@ -1,0 +1,5 @@
+git status - verificar os arquivos que foram tocados a branch de trabalho.
+git add . -pegar todos os arquivos que foram tocados e separar em um pacote para o envio.
+git commit -m mensagem - fecha o pacote de trabalho colocando uma mensagem no mesmo.
+git push origin master - para enviar arquivos para o servidor.
+git pull origin master - para trazer arquvios do servidor.
