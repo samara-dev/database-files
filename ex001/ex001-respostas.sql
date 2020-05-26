@@ -2,7 +2,6 @@
 
 a) inserir mais 30 linhas na tabela de usuario variando entre os campos;
 
-
 insert into usuario values (0, "Samara", "samara@br.com", "1989-02-21", 50, "ADIMIN");
 insert into usuario values (0, "Sabrina", "sabrina@br.com", "1985-11-25", 60, "USER");
 insert into usuario values (0, "Suelen", "suelen@br.com", "1989-02-21", 40, "USER");

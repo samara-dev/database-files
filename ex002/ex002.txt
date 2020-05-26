@@ -1,0 +1,68 @@
+0) Vamos utilizar o banco de dados já existente:
+
+USE samara;
+
+1) Vamos criar uma nova tabela chamada VEICULO:
+
+CREATE TABLE veiculo (
+id INTEGER PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(50) NOT NULL,
+fabricante VARCHAR(50) NOT NULL,
+ano INTEGER NOT NULL,
+dono INTEGER NOT NULL,
+FOREIGN KEY(dono) REFERENCES usuario(id));
+
+> Observe a linha FOREIGN KEY. Nela estou declarando uma < chave estrangeira >. Usamos este recurso quando queremos ligar a tabela que estamos 
+criando a outra. Neste caso, a minha intenção é ligar um carro a seu respectivo dono.
+
+2) Inserir dados:
+
+Com base nos inserts que você gerou no exercicio anterior, vamos inserir um carro para cada usuário. Eu vou iniciar.
+
+insert into veiculo values (0, "Cobalt", "Chevrolet", 2017, 1);
+insert into veiculo values (0, "Sandero", "Renault", 2019, 2);
+insert into veiculo values (0, "CB500", "Honda", 2019, 3);
+
+Pergunta: Antes de continuar, os 3 veiculos criados acima sào de quais usuários?
+
+Resposta: ..................
+
+Agora você continua, para cada usuario, crie um veiculo para ele com exceção dos usuários com perfil 'DEV'. Basta não criar um veiculo para eles.
+Para o fabricante, use os nomes da lista => [ Chevrolet, Renault, Hyundai, Fiat, Toyota, Nissan ou GM ]. Crie pelo menos 1 carro para cada fabricante.
+Para o ano, crie os veiculos entre 2010 e 2020.
+
+3) Buscar dados:
+
+SELECT * FROM veiculo;
+SELECT * FROM veiculo where fabricante = "Honda";
+SELECT * FROM veiculo where ano > 2013 and ano < 2019;
+
+4) Consultas mais complexas:
+
+Como seria para buscarmos dados usando as duas tabelas ao mesmo tempo?
+
+a) Buscar o nome de todos os usuários que possuem veiculo.
+SELECT u.nome FROM usuario u, veiculo v WHERE u.id = v.dono;
+
+b) Buscar o nome de todos os usuários que possuem veiculo com ano maior que 2017.
+SELECT u.nome FROM usuario u, veiculo v WHERE u.id = v.dono AND v.ano > 2017;
+
+Observe que as tabelas usuario e veiculo possuem uma coluna < nome >. Como o MySQL vai saber qual nome eu quero retornar? Passando um apelido
+para a tabela. A tabela usuario foi apelidada de u e a tabela veiculo foi apelidada de v. Sem os apelidos, a consulta ficariaa assim:
+
+SELECT usuario.nome FROM usuario, veiculo WHERE usuario.id = veiculo.dono AND veiculo.ano > 2017;
+
+c) Buscar o id de todos os usuários que não possuem carro.
+SELECT id FROM usuario WHERE id NOT IN (SELECT dono FROM veiculo);
+
+5) Atividades:
+
+a) retornar a lista de fabricantes dos veiculos sem repetição;
+b) retornar os veiculos com data de fabricação maior que 2015;
+b) retornar a lista dos perfis sem repetição dos usuários que possuem carro com fabricante Honda;
+c) retornar o nome dos carros dos usuarios que possuem dinheiro maior que 60;
+d) retornar a data de nascimento dos usuários que possuem perfil USER e carro de fabricante GM;
+e) um usuário pode ter mais de um veiculo? Prove.
+f) um veiculo pode existir sem um dono? Prove.
+
+Observação: Para cada letra, subir as SQLs no git no repositorio DATABASE.
